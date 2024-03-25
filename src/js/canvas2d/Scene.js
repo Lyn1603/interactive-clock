@@ -27,18 +27,9 @@ export default class Scene {
 
     get width() { return this.domElement.width }
     get height() { return this.domElement.height }
-    get position() { return this.domElement.position }
-
-    clear() {
-        // efface le canvas
-        this.context.clearRect(0, 0, this.width, this.height)
-    }
-
-    update() {
-        return this.params['is-update']
-    }
 
     drawHand(hand, lineWidth) {
+
         // Dessiner une aiguille de l'horloge
         this.context.beginPath();
         this.context.moveTo(hand.x, hand.y);
@@ -59,6 +50,15 @@ export default class Scene {
         this.drawHand(this.minuteHand, 4);
         this.drawHand(this.secondHand, 2);
     }
+
+
+
+    update() {
+        return this.params['is-update']
+    }
+
+
+
 
     destroy() {}
 }

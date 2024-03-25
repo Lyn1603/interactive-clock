@@ -37,6 +37,7 @@ export default class Scenario extends Scene {
             this.minuteHand.endAngle = minuteAngle;
             this.secondHand.endAngle = secondAngle;
 
+
             this.draw(); // Redessiner l'horloge après chaque mise à jour
         }, 1000); // Rafraîchir toutes les secondes
     }
@@ -60,6 +61,29 @@ export default class Scenario extends Scene {
         this.context.strokeStyle = "black";
         this.context.lineWidth = 4;
         this.context.stroke();
+
+        // Dessiner les marqueurs des heures
+        for (let i = 0; i < 12; i++) {
+            const angle = ((i + 10) % 12) * (Math.PI / 6); // Décaler de 9 heures pour placer le "0" en haut
+            const x = this.width / 2 + Math.cos(angle) * (this.clockRadius - 40);
+            const y = this.height / 2 + Math.sin(angle) * (this.clockRadius - 40);
+            this.context.font = "24px Arial";
+            this.context.fillStyle = "#333";
+            this.context.textAlign = "center";
+            this.context.textBaseline = "middle";
+            this.context.fillText(((i + 1) % 12).toString(), x, y); // Utiliser ((i + 1) % 12) pour afficher 12 à la place de 0
+        }
     }
+
+    drawTime() {
+        // Afficher l'heure au centre de l'horloge
+        const time = `${this.hour.toString().padStart(2, '0')}:${this.minute.toString().padStart(2, '0')}:${this.second.toString().padStart(2, '0')}`;
+        this.context.font = "24px Arial";
+        this.context.fillStyle = "#333";
+        this.context.textAlign = "center";
+        this.context.fillText(time, this.width / 2, this.height / 2 + 50);
+    }
+
+
 
 }
