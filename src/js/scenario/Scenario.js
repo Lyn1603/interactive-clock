@@ -70,15 +70,20 @@ export default class Scenario extends Scene {
 
         // Dessiner les marqueurs des heures
         for (let i = 0; i < 12; i++) {
-            const angle = ((i + 10) % 12) * (Math.PI / 6); // Décaler de 9 heures pour placer le "0" en haut
+            const angle = ((i + 9) % 12) * (Math.PI / 6); // Angle correspondant à chaque marqueur d'heure
             const x = this.width / 2 + Math.cos(angle) * (this.clockRadius - 40);
             const y = this.height / 2 + Math.sin(angle) * (this.clockRadius - 40);
             this.context.font = "24px Arial";
             this.context.fillStyle = "white";
             this.context.textAlign = "center";
             this.context.textBaseline = "middle";
-            this.context.fillText(((i + 1) % 12).toString(), x, y); // Utiliser ((i + 1) % 12) pour afficher 12 à la place de 0
+
+            // Calcul du nombre à afficher en fonction de l'heure actuelle
+            let hourToShow = (i * 5) % 60;
+
+            this.context.fillText(hourToShow.toString(), x, y);
         }
+
     }
 
     drawHand(hand, lineWidth) {
