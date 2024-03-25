@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./public/favicon.ico">
-    <title>JS Canvas Project</title>
+    <title>Interactive Clock</title>
     <style>
 
         @font-face {
@@ -23,6 +23,8 @@
             margin: 0;
             background-image: url("../public/bg.jpeg");
             background-size: cover;
+            animation: scrollBackground 60s linear infinite;
+            color: white;
         }
 
         span {
@@ -63,10 +65,22 @@
             background-color: red; /* Personnalisation de la couleur de la seconde */
         }
 
+        @keyframes scrollBackground {
+            from {
+                background-position: 0 0; /* Départ de l'animation */
+            }
+            to {
+                background-position: 100% 0; /* Fin de l'animation */
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
+
+<h2> Interactive clock using Canva in JavaScript </h2>
 
 <span> Meet me at midnight </span>
 
