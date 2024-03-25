@@ -8,17 +8,24 @@ export default class Scenario extends Scene {
 
         // Dimensions de l'horloge
         this.clockRadius = Math.min(this.width, this.height) * 0.4;
-        this.hourHandLength = this.clockRadius * 0.5;
-        this.minuteHandLength = this.clockRadius * 0.8;
-        this.secondHandLength = this.clockRadius * 0.9;
 
         // Création des aiguilles
-        this.hourHand = new RotatingArc(this.width / 2, this.height / 2, this.hourHandLength, 0, 0);
-        this.minuteHand = new RotatingArc(this.width / 2, this.height / 2, this.minuteHandLength, 0, 0);
-        this.secondHand = new RotatingArc(this.width / 2, this.height / 2, this.secondHandLength, 0, 0);
+        this.hourHand = new RotatingArc(this.width / 2, this.height / 2, this.clockRadius * 0.5, 0, 0);
+        this.minuteHand = new RotatingArc(this.width / 2, this.height / 2, this.clockRadius * 0.8, 0, 0);
+        this.secondHand = new RotatingArc(this.width / 2, this.height / 2, this.clockRadius * 0.9, 0, 0);
 
         // Initialiser l'horloge
         this.initializeClock();
+
+        // Événement de souris pour suivre le mouvement de la souris sur le canvas
+        this.canvas.addEventListener("mousemove", (event) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const mouseX = event.clientX - rect.left;
+            const mouseY = event.clientY - rect.top;
+
+            // Mettre à jour les angles des aiguilles en fonction de la position de la souris
+            this.updateHandAngles(mouseX, mouseY);
+        });
     }
 
     initializeClock() {
@@ -36,7 +43,6 @@ export default class Scenario extends Scene {
             this.hourHand.endAngle = hourAngle;
             this.minuteHand.endAngle = minuteAngle;
             this.secondHand.endAngle = secondAngle;
-
 
             this.draw(); // Redessiner l'horloge après chaque mise à jour
         }, 1000); // Rafraîchir toutes les secondes
@@ -75,15 +81,34 @@ export default class Scenario extends Scene {
         }
     }
 
-    drawTime() {
-        // Afficher l'heure au centre de l'horloge
-        const time = `${this.hour.toString().padStart(2, '0')}:${this.minute.toString().padStart(2, '0')}:${this.second.toString().padStart(2, '0')}`;
-        this.context.font = "24px Arial";
-        this.context.fillStyle = "#333";
-        this.context.textAlign = "center";
-        this.context.fillText(time, this.width / 2, this.height / 2 + 50);
+    drawHand(hand, lineWidth) {
+        // Dessiner une aiguille de l'horloge
+        this.context.beginPath();
+        this.context.moveTo(hand.x, hand.y);
+        this.context.lineTo(hand.x + Math.cos(hand.endAngle) * hand.radius, hand.y + Math.sin(hand.endAngle) * hand.radius);
+        this.context.strokeStyle = "#333";
+        this.context.lineWidth = lineWidth;
+        this.context.stroke();
     }
 
+    updateHandAngles(mouseX, mouseY) {
+        // Calculer l'angle entre le centre du canvas et la position de la souris
+        const dx = mouseX - (this.width / 2);
+        const dy = mouseY - (this.height / 2);
+        let angle = Math.atan2(dy, dx);
 
+        // Convertir l'angle en degrés
+        angle *= 180 / Math.PI;
 
+        // Ajuster l'angle pour qu'il soit positif et dans la plage 0-360 degrés
+        if (angle < 0) {
+            angle += 360;
+        }
+
+        // Mettre à jour l'angle de l'aiguille des secondes
+        this.secondHand.endAngle = deg2rad(angle);
+
+        // Redessiner l'horloge avec les nouvelles positions des aiguilles
+        this.draw();
+    }
 }

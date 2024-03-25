@@ -7,11 +7,44 @@
     <link rel="icon" href="./public/favicon.ico">
     <title>JS Canvas Project</title>
     <style>
-        canvas {
-            border: 2px solid black; /* Bordure du canvas */
-            border-radius: 50%; /* Bordure arrondie pour créer une forme de cercle */
-            background-color: white; /* Couleur de fond du canvas */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
+
+        #canvas {
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
+        }
+
+        /* Personnalisation des aiguilles */
+        .hand {
+            position: absolute;
+            background-color: #333;
+            transform-origin: 50% 100%; /* Point d'origine au bas de l'aiguille */
+        }
+
+        .hour-hand {
+            height: 50%;
+            width: 8px;
+        }
+
+        .minute-hand {
+            height: 70%;
+            width: 6px;
+        }
+
+        .second-hand {
+            height: 80%;
+            width: 2px;
+            background-color: red; /* Personnalisation de la couleur de la seconde */
+        }
+
     </style>
 </head>
 
