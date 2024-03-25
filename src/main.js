@@ -1,30 +1,9 @@
-const canvas = document.querySelector('canvas')
-const ctx = canvas.getContext('2d') // context type: https://developer.mozilla.org/fr/docs/Web/API/HTMLCanvasElement/getContext#typedecontexte
+import Scene from "./js/canvas2d/Scene";
+import Clock from "./js/scenario/Scenario";
 
-/**
- *  CONFIG
- */
+const scene = new Clock()
+console.log(scene)
 
-const ROWS = 5
-const COLS = 6
 
-const red = '#E83A4E'
-const yellow = '#FFE800'
-const blue = '#3B76F5'
-const green = '#71E394'
-const colors = [red, yellow, blue, green]
-
-/**
- *  METHODS
- */
-const drawRectangle = (cWidth, cHeight, color) => {
-    ctx.fillStyle = color
-    ctx.beginPath()
-    ctx.rect(-cWidth / 2, -cHeight / 2, cWidth, cHeight)
-    ctx.fill()
-    ctx.closePath()
-}
-
-const deg2rad = (deg) => {
-    return deg * 2 * Math.PI / 360
-}
+const scene2 = new Scene("canvas")
+console.log(scene2)

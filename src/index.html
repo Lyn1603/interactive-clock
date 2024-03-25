@@ -5,36 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./public/favicon.ico">
-    <title>JS Canvas Project</title>
+    <title>Interactive Clock</title>
+    <style>
+
+        @font-face {
+            font-family: 'Neue Haas Grotesk Display';
+            src: url('../font/NeueHaasDisplayLight.ttf') format('truetype');
+        }
+        body {
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("../public/bg.jpeg");
+            background-size: cover;
+            color: white;
+        }
+
+        span {
+            color: transparent;
+            transition: color 0.3s ease; /* Transition sur la propriété "color" pendant 0.3 secondes avec une accélération douce */
+        }
+
+        span:hover {
+            color: white;
+        }
+
+
+        #canvas {
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
+        }
+
+        /* Personnalisation des aiguilles */
+        .hand {
+            position: absolute;
+            background-color: #333;
+            transform-origin: 50% 100%; /* Point d'origine au bas de l'aiguille */
+        }
+
+        .hour-hand {
+            height: 50%;
+            width: 8px;
+        }
+
+        .minute-hand {
+            height: 70%;
+            width: 6px;
+        }
+
+        .second-hand {
+            height: 80%;
+            width: 2px;
+        }
+
+        @media (max-width: 600px) {
+
+            body{
+                text-align: center;
+            }
+            #canvas {
+                width: 100%; /* Réduit la largeur sur les petits écrans */
+                max-width: none; /* Supprime la limite de largeur maximale */
+                height: 100%; /* Réduit la hauteur sur les petits écrans */
+                max-height: none; /* Supprime la limite de hauteur maximale */
+            }
+
+            /* Ajustement des tailles des aiguilles pour les petits écrans */
+            .hour-hand {
+                width: 6px;
+            }
+
+            .minute-hand {
+                width: 4px;
+            }
+
+            .second-hand {
+                width: 2px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Generative loops</h1>
-        <canvas class="mosaic"></canvas>
-    </div>
 
+<h2> Interactive clock using Canva in JavaScript </h2>
+
+<span> Meet me at midnight </span>
+
+<div class="container">
+
+        <canvas id="canvas" width="400" height="400" ></canvas>
+
+    </div>
     <script type="module" src="./main.js"></script>
 </body>
-<style>
-    h1 {
-        text-align: center;
-        text-transform: uppercase;
-        font-family: Arial, Helvetica, sans-serif;
-        font-style: italic;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .mosaic {
-        width: 100vw;
-        height: 100vw;
-        background-color: black;
-    }
-</style>
-
 </html>
