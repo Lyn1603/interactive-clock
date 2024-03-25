@@ -64,7 +64,7 @@ export default class Scenario extends Scene {
         // Dessiner le cadran de l'horloge
         this.context.beginPath();
         this.context.arc(this.width / 2, this.height / 2, this.clockRadius, 0, 2 * Math.PI);
-        this.context.strokeStyle = "black";
+        this.context.strokeStyle = "white";
         this.context.lineWidth = 4;
         this.context.stroke();
 
@@ -74,7 +74,7 @@ export default class Scenario extends Scene {
             const x = this.width / 2 + Math.cos(angle) * (this.clockRadius - 40);
             const y = this.height / 2 + Math.sin(angle) * (this.clockRadius - 40);
             this.context.font = "24px Arial";
-            this.context.fillStyle = "#333";
+            this.context.fillStyle = "white";
             this.context.textAlign = "center";
             this.context.textBaseline = "middle";
             this.context.fillText(((i + 1) % 12).toString(), x, y); // Utiliser ((i + 1) % 12) pour afficher 12 à la place de 0
@@ -86,7 +86,7 @@ export default class Scenario extends Scene {
         this.context.beginPath();
         this.context.moveTo(hand.x, hand.y);
         this.context.lineTo(hand.x + Math.cos(hand.endAngle) * hand.radius, hand.y + Math.sin(hand.endAngle) * hand.radius);
-        this.context.strokeStyle = "#333";
+        this.context.strokeStyle = "white";
         this.context.lineWidth = lineWidth;
         this.context.stroke();
     }

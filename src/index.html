@@ -7,18 +7,36 @@
     <link rel="icon" href="./public/favicon.ico">
     <title>JS Canvas Project</title>
     <style>
+
+        @font-face {
+            font-family: 'Neue Haas Grotesk Display';
+            src: url('../font/NeueHaasDisplayLight.ttf') format('truetype');
+        }
         body {
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            gap: 40px;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-image: url("../public/bg.jpeg");
+            background-size: cover;
         }
+
+        span {
+            color: transparent;
+            transition: color 0.3s ease; /* Transition sur la propriété "color" pendant 0.3 secondes avec une accélération douce */
+        }
+
+        span:hover {
+            color: white;
+        }
+
 
         #canvas {
             border-radius: 50%;
-            background-color: #fff;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
         }
 
@@ -49,7 +67,11 @@
 </head>
 
 <body>
-    <div class="container">
+
+<span> Meet me at midnight </span>
+
+<div class="container">
+
         <canvas id="canvas" width="400" height="400" ></canvas>
 
     </div>
