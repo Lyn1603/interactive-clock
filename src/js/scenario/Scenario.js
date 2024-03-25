@@ -69,8 +69,8 @@ export default class Scenario extends Scene {
         this.context.stroke();
 
         // Dessiner les marqueurs des heures
-        for (let i = 0; i < 12; i++) {
-            const angle = ((i + 9) % 12) * (Math.PI / 6); // Angle correspondant à chaque marqueur d'heure
+        for (let i = 1; i <= 12; i++) {
+            const angle = ((i - 3) % 12) * (Math.PI / 6); // Angle correspondant à chaque marqueur d'heure
             const x = this.width / 2 + Math.cos(angle) * (this.clockRadius - 40);
             const y = this.height / 2 + Math.sin(angle) * (this.clockRadius - 40);
             this.context.font = "24px Arial";
@@ -78,10 +78,7 @@ export default class Scenario extends Scene {
             this.context.textAlign = "center";
             this.context.textBaseline = "middle";
 
-            // Calcul du nombre à afficher en fonction de l'heure actuelle
-            let hourToShow = (i * 5) % 60;
-
-            this.context.fillText(hourToShow.toString(), x, y);
+            this.context.fillText(i.toString(), x, y); // Afficher les nombres de 1 à 12
         }
 
     }
