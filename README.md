@@ -1,2 +1,2 @@
-# js-canvas-sandbox
+# Interactive Clock using canvas in JavaScript
  
