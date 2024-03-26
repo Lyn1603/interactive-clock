@@ -82,31 +82,13 @@
             }
         }
 
-        @media (max-width: 600px) {
-
-            body{
-                text-align: center;
-            }
+        /* Styles réactifs */
+        @media screen and (max-width: 768px) {
             #canvas {
-                width: 100%; /* Réduit la largeur sur les petits écrans */
-                max-width: none; /* Supprime la limite de largeur maximale */
-                height: 100%; /* Réduit la hauteur sur les petits écrans */
-                max-height: none; /* Supprime la limite de hauteur maximale */
-            }
-
-            /* Ajustement des tailles des aiguilles pour les petits écrans */
-            .hour-hand {
-                width: 6px;
-            }
-
-            .minute-hand {
-                width: 4px;
-            }
-
-            .second-hand {
-                width: 2px;
+                width: 70%;
             }
         }
+
 
     </style>
 </head>
