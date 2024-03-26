@@ -11,10 +11,12 @@ console.log(scene2)
 // animation
 
 const canvas = document.getElementById('canvas');
+const audio = document.getElementById('audio');
 
 
 canvas.addEventListener('mouseover', function() {
     document.getElementById('background').style.opacity = 1; // Fait apparaître progressivement le fond d'écran
+    audio.volume = 0.3;
     playMusic()
 });
 
