@@ -12,34 +12,44 @@
             font-family: 'Neue Haas Grotesk Display';
             src: url('../font/NeueHaasDisplayLight.ttf') format('truetype');
         }
+
         body {
-            font-family: 'Neue Haas Grotesk Display', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 40px;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-image: url("../public/bg.jpeg");
+            padding: 0;
+            overflow: hidden; /* Empêcher les barres de défilement */
+            position: relative; /* Position relative pour permettre la superposition */
+            font-family: 'Neue Haas Grotesk Display', sans-serif;
+            text-align: center;
+
+        }
+        #background{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('../public/bg.jpeg');
             background-size: cover;
-            color: white;
-        }
+            opacity: 0; /* Démarre avec une opacité de 0 */
+            transition: opacity 0.5s; /* Transition de 0.5 seconde pour l'opacité */
+            z-index: 1; /* Mettre le fond d'écran en arrière-plan */
 
-        span {
-            color: transparent;
-            transition: color 0.3s ease; /* Transition sur la propriété "color" pendant 0.3 secondes avec une accélération douce */
         }
-
-        span:hover {
-            color: white;
-        }
-
 
         #canvas {
+            position: absolute;
+            top: 50vh;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Mettre le canevas au premier plan */
             border-radius: 50%;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
         }
+
+        #canvas:hover + #background + span {
+            opacity: 1; /* Au survol du canevas, faire apparaître progressivement le fond d'écran */
+        }
+
 
         /* Personnalisation des aiguilles */
         .hand {
@@ -61,6 +71,15 @@
         .second-hand {
             height: 80%;
             width: 2px;
+        }
+
+        @keyframes bgFade {
+            from {
+                opacity: 0; /* Début de l'animation avec une opacité à 1 */
+            }
+            to {
+                opacity: 1; /* Fin de l'animation avec une opacité à 0 */
+            }
         }
 
         @media (max-width: 600px) {
@@ -93,16 +112,17 @@
 </head>
 
 <body>
+<h2> My Interactive clock </h2>
 
-<h2> Interactive clock using Canva in JavaScript </h2>
 
-<span> Meet me at midnight </span>
+<div id="background">
+    <h2 style="color: white; font-weight: bold; margin-top: 20%"> Midnight </h2>
+</div>
 
-<div class="container">
+<canvas id="canvas" width="400" height="400" ></canvas>
+<audio id="audio" src="music.mp3" preload="auto"></audio>
 
-        <canvas id="canvas" width="400" height="400" ></canvas>
 
-    </div>
-    <script type="module" src="./main.js"></script>
+<script type="module" src="./main.js"></script>
 </body>
 </html>
