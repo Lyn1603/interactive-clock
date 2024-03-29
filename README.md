@@ -12,8 +12,6 @@ Ce projet est une horloge interactive avec la possibilité de jouer de la musiqu
 
 ### Installation
 
-1. **Prérequis** : Assurez-vous d'avoir Node.js et npm installés sur votre machine.
-
 2. **Cloner le dépôt** : ``` git clone https://github.com/your-username/interactive-clock.git ```
   
 3. **Installer les dépendances** avec npm : ``` npm install ```
@@ -37,8 +35,6 @@ This project is an interactive clock with the ability to play random music in th
 - Resetting the background to white when the music ends.
 
 ### Installation
-
-1. **Prerequisites**: Ensure you have Node.js and npm installed on your machine.
 
 2. **Clone the repository**: ``` git clone https://github.com/your-username/interactive-clock.git ```
    
