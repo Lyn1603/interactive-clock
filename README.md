@@ -12,9 +12,9 @@ Ce projet est une horloge interactive avec la possibilité de jouer de la musiqu
 
 ### Installation
 
-2. **Cloner le dépôt** : ``` git clone https://github.com/your-username/interactive-clock.git ```
+1. **Cloner le dépôt** : ``` git clone https://github.com/your-username/interactive-clock.git ```
   
-3. **Installer les dépendances** avec npm : ``` npm install ```
+2. **Installer les dépendances** avec npm : ``` npm install ```
 
 
 ### Utilisation
@@ -36,9 +36,9 @@ This project is an interactive clock with the ability to play random music in th
 
 ### Installation
 
-2. **Clone the repository**: ``` git clone https://github.com/your-username/interactive-clock.git ```
+1. **Clone the repository**: ``` git clone https://github.com/your-username/interactive-clock.git ```
    
-3. **Install dependencies** using npm: ``` npm install ```
+2. **Install dependencies** using npm: ``` npm install ```
 
 
 ### Usage
