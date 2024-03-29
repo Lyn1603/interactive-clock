@@ -47,9 +47,10 @@ function playMusic() {
         switch (randomMusic) {
             case 0:
                 document.getElementById('background').style.backgroundImage = "url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzJtempmZXgxamc2bXFlb2hxaWxxamF5MXVuejF5NnN1OGJ1N3RjYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hrrcWb7OpDoxhgR4xB/giphy.gif')";
+
                 break;
             case 1:
-                document.getElementById('background').style.backgroundImage = "url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjY3Y3k2eXJvZWsxemd1NXoxaGVpaDJrZ3o5MzlicnV2ZTI5Y2dscCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/exfSTanP4prYQ/giphy.gif')";
+                document.getElementById('background').style.backgroundImage = "url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGdhZXlkNjZrdHdsYndnOGY0bHN2enkyczI1NmZ3Zmh4a2c3NjcyNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Iy5fjHyedk9aDGU/giphy.gif')";
                 break;
             case 2:
                 document.getElementById('background').style.backgroundImage = "url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODR0emo3Ymgzb3prODltNzU2dDQzbHNzZzRhNmF3aDhqNnRvYzk5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pJmnk86fXFNmrUb8LB/giphy.gif')";
