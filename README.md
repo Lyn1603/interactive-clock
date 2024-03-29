@@ -49,9 +49,7 @@ This project is an interactive clock with the ability to play random music in th
 
 ### Usage
 
-- To start the development server and view the project in your browser, run:
-
-``` npm run dev ```
+- To start the development server and view the project in your browser, run: ``` npm run dev ```
 
 
 
