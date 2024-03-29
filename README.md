@@ -21,9 +21,7 @@ Ce projet est une horloge interactive avec la possibilité de jouer de la musiqu
 
 ### Utilisation
 
-- Pour démarrer le serveur de développement et voir le projet dans votre navigateur, exécutez :
-
-``` npm run dev  ```
+- Pour démarrer le serveur de développement et voir le projet dans votre navigateur, exécutez : ``` npm run dev  ```
 
 # English version bellow
 
