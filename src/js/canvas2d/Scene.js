@@ -17,7 +17,7 @@ export default class Scene {
             this.debugFolder.add(this.params, 'is-update')
         } */
 
-        // canvas
+        // J'importe mes éléments de mon canvas
         this.domElement = new DomElement(this.id)
         this.canvas = this.domElement.instance
         this.canvas.width = this.domElement.width
@@ -28,24 +28,29 @@ export default class Scene {
     get width() { return this.domElement.width }
     get height() { return this.domElement.height }
 
+
+    ////// METHODE POUR AFFICHER MES AIGUILLES DANS MA SCENE //////
+
     drawHand(hand, lineWidth) {
 
-        // Dessiner une aiguille de l'horloge
         this.context.beginPath();
         this.context.moveTo(hand.x, hand.y);
         this.context.lineTo(hand.x + Math.cos(hand.endAngle) * hand.radius, hand.y + Math.sin(hand.endAngle) * hand.radius);
-        this.context.strokeStyle = "black";
+        this.context.strokeStyle = "white";
         this.context.lineWidth = lineWidth;
         this.context.stroke();
     }
 
+
+    ////// METHODE POUR AFFICHER  MA SCENE //////
+
     draw() {
         this.context.clearRect(0, 0, this.width, this.height); // Effacer le canvas
 
-        // Dessiner le cadran de l'horloge
+        // J'affiche le cadran de l'horloge
         this.drawClockFace();
 
-        // Dessiner les aiguilles de l'horloge
+        // J'affiche les aiguilles de l'horloge
         this.drawHand(this.hourHand, 6);
         this.drawHand(this.minuteHand, 4);
         this.drawHand(this.secondHand, 2);
@@ -53,11 +58,9 @@ export default class Scene {
 
 
 
-    update() {
+   /* update() {
         return this.params['is-update']
-    }
-
-
+    } */
 
 
     destroy() {}

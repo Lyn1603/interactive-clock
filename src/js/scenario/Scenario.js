@@ -28,6 +28,8 @@ export default class Scenario extends Scene {
         });
     }
 
+    ////////// METHODE POUR METTRE A JOUR L'HEURE DE MON HORLOGE  ////////////
+
     UpdateClock() {
         // Je mets à jour l'horloge toutes les secondes
         setInterval(() => {
@@ -48,6 +50,9 @@ export default class Scenario extends Scene {
         }, 1000);
     }
 
+
+    //////////// METHODE POUR DESSINER MA SCENE  ////////////
+
     draw() {
         super.draw();
 
@@ -60,6 +65,9 @@ export default class Scenario extends Scene {
         this.drawHand(this.secondHand, 2);
     }
 
+
+    //////////// METHODE POUR DESSINER L'HORLOGE ////////////
+
     drawClockFace() {
         // Je dessine le cadran de l'horloge
         this.context.beginPath();
@@ -68,7 +76,7 @@ export default class Scenario extends Scene {
         this.context.lineWidth = 4;
         this.context.stroke();
 
-        // Je dessine les marqueurs des heures
+        // Je dessine les marqueurs des heures minutes et secondes
         for (let i = 1; i <= 12; i++) {
             const angle = ((i - 3) % 12) * (Math.PI / 6); // Angle correspondant à chaque marqueur d'heure
             const pointSize = 4; // Taille du point
@@ -84,7 +92,8 @@ export default class Scenario extends Scene {
 
     }
 
-    // Méthode pour dessiner l'horloge
+    //////////// METHODE POUR DESSINER LES AIGUILLES ////////////
+
     drawHand(hand, lineWidth) {
         // Je dessine une aiguille de l'horloge
         this.context.beginPath();
@@ -96,7 +105,8 @@ export default class Scenario extends Scene {
     }
 
 
-    // Méthode pour mettre à jour la position des aiguilles
+    //////////// METHODE METTRE A JOUR LES AIGUILLES AU SURVOL DE MON CANVAS  ////////////
+
     updateHandAngles(mouseX, mouseY) {
         // Je calcule l'angle entre le centre du canvas et la position de la souris
         const dx = mouseX - (this.width / 2); // je récupère dx par rapport au centre de l'horloge
