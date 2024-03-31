@@ -45,7 +45,7 @@ export default class Scenario extends Scene {
             this.secondHand.endAngle = secondAngle; // j'affiche la position de l'aiguille des secondes
 
             this.draw(); // Je redessine l'horloge quand l'aiguille et mis à jour l'horloge après chaque mise à jour
-        }, 1000); // Rafraîchir toutes les secondes
+        }, 1000);
     }
 
     draw() {
@@ -71,7 +71,7 @@ export default class Scenario extends Scene {
         // Je dessine les marqueurs des heures
         for (let i = 1; i <= 12; i++) {
             const angle = ((i - 3) % 12) * (Math.PI / 6); // Angle correspondant à chaque marqueur d'heure
-            const pointSize = 5; // Taille du point
+            const pointSize = 4; // Taille du point
             const x = this.width / 2 + Math.cos(angle) * (this.clockRadius - 40);
             const y = this.height / 2 + Math.sin(angle) * (this.clockRadius - 40);
             this.context.font = "24px Arial";
@@ -99,11 +99,11 @@ export default class Scenario extends Scene {
     // Méthode pour mettre à jour la position des aiguilles
     updateHandAngles(mouseX, mouseY) {
         // Je calcule l'angle entre le centre du canvas et la position de la souris
-        const dx = mouseX - (this.width / 2);
-        const dy = mouseY - (this.height / 2);
-        let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+        const dx = mouseX - (this.width / 2); // je récupère dx par rapport au centre de l'horloge
+        const dy = mouseY - (this.height / 2);// je récupère dy par rapport au centre de l'horloge
+        let angle = Math.atan2(dy, dx) * 180 / Math.PI; // j'obtiens mes deux coordonnées en radiants puis les convertis en degrés
 
-        // Je mets à jour l'angle de l'aiguille des secondes
+        // Je mets à jour l'angle de l'aiguille des secondes avec dx et dy en paramètre
         this.secondHand.endAngle = deg2rad(angle);
 
         // Je redessine l'horloge avec les nouvelles positions des aiguilles
