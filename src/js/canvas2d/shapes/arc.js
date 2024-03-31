@@ -9,13 +9,9 @@ export class RotatingArc {
         this.startAngle = startAngle
         this.endAngle = endAngle
 
-        this.vAngular = randomRange(-5, 5)
     }
 
-    update(deltaTime = 16, speed = 1) {
-        this.startAngle += this.vAngular * deltaTime * speed
-        this.endAngle += this.vAngular * deltaTime * speed
-    }
+
 
     draw(context) {
         context.beginPath()
