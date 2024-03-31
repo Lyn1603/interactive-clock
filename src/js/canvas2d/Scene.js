@@ -7,7 +7,7 @@ export default class Scene {
         this.globalContext.pushScene(this)
         this.id = id
 
-        // debug
+        /* debug
         this.params = {
             'is-update': true
         }
@@ -15,7 +15,7 @@ export default class Scene {
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder(this.id)
             this.debugFolder.add(this.params, 'is-update')
-        }
+        } */
 
         // canvas
         this.domElement = new DomElement(this.id)
